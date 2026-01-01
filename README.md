@@ -10,7 +10,7 @@ This project demonstrates the deployment of a security monitoring environment. I
 * **Tools:** Nmap (vulnerability scanning), UFW (Firewalling)
 
 ## Lab Architecture & Dashboard
-![Home Lab Screenshot](screenshot.png) 
+![Home Lab Screenshot](screenshots/ca1.png) 
 *(Note to recruiter: Upload your screenshot to GitHub and name it screenshot.png in the same folder)*
 
 ### Key Features:
