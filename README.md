@@ -13,7 +13,7 @@ This project demonstrates the deployment of a security monitoring environment. I
 ![Home Lab Screenshot](screenshots/ca1.png) 
 ![Home Lab Screenshot2](screenshots/ca2.png)
 ![Home Lab Screenshot3](screenshots/ca3.png)
-![dashboardScreenshot](screenshots/ca4.png) 
+![dashboardScreenshot](screenshots/ca4.jpeg) 
 
 
 ### Key Features:
