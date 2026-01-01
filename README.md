@@ -11,7 +11,10 @@ This project demonstrates the deployment of a security monitoring environment. I
 
 ## Lab Architecture & Dashboard
 ![Home Lab Screenshot](screenshots/ca1.png) 
-*(Note to recruiter: Upload your screenshot to GitHub and name it screenshot.png in the same folder)*
+![Home Lab Screenshot2](screenshots/ca2.png)
+![Home Lab Screenshot3](screenshots/ca3.png)
+![dashboardScreenshot](screenshots/ca4.png) 
+
 
 ### Key Features:
 1. **Brute-Force Detection:** Custom Splunk alerts for multiple failed SSH login attempts.
