@@ -11,10 +11,13 @@ This project demonstrates the deployment of a security monitoring environment. I
 
 ## Lab Architecture & Dashboard
 ![Home Lab Screenshot](screenshots/ca1.png) 
-<br><br/>
+<br><br/><br><br/>
 ![Home Lab Screenshot2](screenshots/ca2.png)
+<br><br/><br><br/>
 ![Home Lab Screenshot3](screenshots/ca3.png)
+<br><br/><br><br/>
 ![dashboardScreenshot](screenshots/ca4.jpeg) 
+<br><br/><br><br/>
 
 
 ### Key Features:
