@@ -11,7 +11,7 @@ This project demonstrates the deployment of a security monitoring environment. I
 
 ## Lab Architecture & Dashboard
 ![Home Lab Screenshot](screenshots/ca1.png) 
-/br
+<br><br/>
 ![Home Lab Screenshot2](screenshots/ca2.png)
 ![Home Lab Screenshot3](screenshots/ca3.png)
 ![dashboardScreenshot](screenshots/ca4.jpeg) 
