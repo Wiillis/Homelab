@@ -118,7 +118,8 @@ sourcetype=suricata event_type=alert NOT dest_port=1900
 Run this after any simulation to confirm end-to-end detection is working:
 
 ```
-sourcetype=suricata event_type=alert
+sourcetype=suricata event_type=alert NOT dest_port=1900
+NOT alert.signature IN ("SURICATA Ethertype unknown", "SURICATA STREAM Packet with invalid timestamp")
 | table timestamp src_ip dest_ip alert.signature alert.severity
 | sort -timestamp
 ```
