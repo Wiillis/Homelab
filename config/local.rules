@@ -1,0 +1,11 @@
+# Custom Suricata Detection Rules
+# Author: Willis
+# Last updated: 2026-04-02
+
+# Pass DHT/BitTorrent noise on common ports
+pass udp any 6881:6889 -> any any (msg:"Pass DHT Noise Port 6881"; sid:999999; rev:1;)
+pass udp any any -> any 6881 (msg:"Pass DHT Noise Port 6881"; sid:999998; rev:1;)
+
+# SSH Brute Force Detection
+# Fires once per source IP after 5 connection attempts in 60 seconds
+alert tcp any any -> any 22 (msg:"SSH Brute Force Attempt"; threshold:type both, track by_src, count 5, seconds 60; classtype:attempted-admin; sid:9000001; rev:2;)
