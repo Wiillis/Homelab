@@ -218,5 +218,6 @@ Homelab/
 ├── splunk-queries/
 │   └── dashboard-queries.md
 └── incidents/
-    └── INC-001-bittorrent-detection.md
+    ├── INC-001-bittorrent-detection.md
+    └── INC-002-attack-response-root.md
 ```
