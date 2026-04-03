@@ -170,8 +170,8 @@ Suricata was tuned to log only security-relevant event types, eliminating noise 
 
 **Disabled:** `mdns`, `files`, `smtp`, `fileinfo`, `stats`, `ftp`, `rdp`, `nfs`, `smb`, `websocket`, and 10+ other low-value protocol loggers
 
-Full config: [configs/suricata.yaml](configs/suricata.yaml)
-Suppression rules: [configs/threshold.conf](configs/threshold.conf)
+Full config: [config/suricata.yaml](config/suricata.yaml)
+Suppression rules: [config/threshold.conf](config/threshold.conf)
 
 ---
 
@@ -211,7 +211,7 @@ Homelab/
 ├── screenshots/
 │   ├── dashboard-baseline.png
 │   └── dashboard-attack-simulation.png
-├── configs/
+├── config/
 │   ├── suricata.yaml
 │   └── threshold.conf
 ├── splunk-queries/
