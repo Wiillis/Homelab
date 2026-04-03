@@ -93,7 +93,7 @@ The dashboard provides real-time visibility across 8 panels:
 ### Real Detections
 
 **BitTorrent Tracker Communication**
-Suricata detected DNS queries from internal host `172.20.13.236` to known BitTorrent tracker `tracker.coppersurfer.tk`. In a corporate environment this would constitute a policy violation and potential data exfiltration risk. Documented as [INC-001](incidents/INC-001-bittorrent-detection.md).
+Suricata detected DNS queries from internal host `172.20.13.236` to known BitTorrent tracker `tracker.coppersurfer.tk`. In a corporate environment this would constitute a policy violation and potential data exfiltration risk. Documented as [INC-001](incidents/INC-001—Suspicious-DNS-Query-to-.tk-Domain).
 
 **SSDP Scanning**
 Recurring UDP traffic to port 1900 (SSDP) detected from internal host to router. Identified as benign network discovery, suppressed via threshold.conf.
