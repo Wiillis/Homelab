@@ -180,6 +180,7 @@ Suppression rules: [config/threshold.conf](config/threshold.conf)
 | ID | Date | Title | Severity |
 |---|---|---|---|
 | [INC-001](incidents/INC-001—Suspicious-DNS-Query-to-.tk-Domain.md) | 2026-03-31 | BitTorrent Tracker Communication Detected | Medium |
+| [INC-002](incidents/IINC-002-attack-response-root.md) | 2026-03-31 | GPL ATTACK_RESPONSE id check | High |
 
 ---
 
