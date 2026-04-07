@@ -13,7 +13,7 @@ Ubuntu Server simu-s
 ├── Wazuh Single-Node Stack (Docker Compose)
 │   ├── wazuh.manager
 │   ├── wazuh.indexer
-│   └── wazuh.dashboard  → https://<tailscale-ip>:8443
+│   └── wazuh.dashboard  → https://100.116.66.42:8443(tailscale-ip)
 └── Wazuh Agent v4.11.2 (native) ← monitors simu-s itself
         └── connects to Manager via 127.0.0.1:1514/tcp
 ```
