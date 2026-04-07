@@ -24,13 +24,18 @@ This project has evolved over several months — starting with basic Splunk log 
                                      SSH Brute Force,
                                      Threat Signatures)
 
-[Wazuh Agent] ──── ossec events ──▶ [Wazuh Manager (Docker)]
-       │                                        │
-[Ubuntu Server simu-s]                          ▼
-                                      [Wazuh Dashboard]
-                                    (FIM, SCA, Vulnerability
-                                     Detection, Agent Status)
+[Wazuh Agent] ──── ossec events ──▶ [Wazuh Single-Node Stack (Docker)]
+       │                               ├── wazuh.manager
+       │                               ├── wazuh.indexer
+       └─── both on Ubuntu Server ─────┴── wazuh.dashboard
+            simu-s                                  │
+                                                    ▼
+                                          [Wazuh Dashboard]
+                                        (FIM, SCA, Vulnerability
+                                         Detection, Agent Status)
 ```
+
+> **Note:** Wazuh is deployed as the official single-node Docker Compose stack — Manager, Indexer, and Dashboard run as three containers on Ubuntu Server (`simu-s`). The Wazuh Agent is installed natively on the same host and connects to the Manager via `127.0.0.1:1514`. The dashboard is accessed remotely via Tailscale VPN on port 8443.
 
 Remote Access: Tailscale VPN connects all lab nodes securely without exposing ports to the internet.
 
@@ -44,8 +49,9 @@ Remote Access: Tailscale VPN connects all lab nodes securely without exposing po
 | IDS | Suricata 8.0.3 | Network intrusion detection |
 | EDR / HIDS | Wazuh 4.11.2 | Endpoint detection, FIM, SCA, vulnerability scanning |
 | Log Forwarder | Splunk Universal Forwarder (Docker) | Ships logs to Splunk |
-| EDR Agent | Wazuh Agent (native) | Ships endpoint telemetry to Manager |
-| Containerization | Docker / Portainer | Runs Suricata, UF, and Wazuh Manager as containers |
+| EDR Manager | Wazuh Single-Node Stack (Docker) | Manager + Indexer + Dashboard — receives agent telemetry, runs detections |
+| EDR Agent | Wazuh Agent v4.11.2 (native) | Ships endpoint telemetry to local Manager |
+| Containerization | Docker / Portainer | Runs Suricata, UF, and Wazuh stack as containers |
 | Remote Access | Tailscale | Secure site-to-site VPN across lab nodes |
 | OS | Ubuntu Server 24.04 | Primary dedicated lab host |
 | Firewall | UFW | Host-based firewall hardening |
@@ -67,7 +73,7 @@ Remote Access: Tailscale VPN connects all lab nodes securely without exposing po
 
 - Migrated from VM to dedicated physical server
 - Deployed Suricata IDS 8.0.3 in Docker container
-- Configured eve.json log forwarding to Splunk via Universal Forwarder
+- Configured eve.json log forwarding to Splunk Enterprise via Universal Forwarder
 - Tuned Suricata configuration to eliminate noise (mdns, fileinfo, stats)
 - Built suppression rules in threshold.conf for known benign signatures
 - Built 8-panel real-time SOC dashboard in Splunk
@@ -76,9 +82,10 @@ Remote Access: Tailscale VPN connects all lab nodes securely without exposing po
 
 ### v3 — EDR Integration (April 2026)
 
-- Deployed Wazuh Manager + Indexer + Dashboard via official Docker Compose stack
+- Deployed Wazuh as official single-node Docker Compose stack (Manager + Indexer + Dashboard) on Ubuntu Server
+- Deployed Wazuh Agent natively on the same Ubuntu Server to monitor the host itself
+- Agent connects to Manager via localhost (127.0.0.1:1514) — both on simu-s
 - Resolved version mismatch — downgraded Wazuh Agent to v4.11.2 to match Manager
-- Configured Wazuh Agent natively on Ubuntu Server to monitor the host itself
 - Enabled File Integrity Monitoring — tracking changes across /etc, /usr/bin, /usr/sbin
 - Enabled Vulnerability Detection — identified 47 Critical, 956 High CVEs on monitored host
 - Resolved missing SCA policy — downloaded CIS Ubuntu 24.04 benchmark from Wazuh main branch
@@ -251,7 +258,8 @@ Suppression rules: `config/threshold.conf`
 - Simulating real attacks (brute force, port scan, C2 callbacks) to validate detection pipeline
 
 ### v3
-- Deploying a full EDR stack (Manager + Indexer + Dashboard) using Docker Compose
+- Deploying a full EDR stack (Manager + Indexer + Dashboard) using Docker Compose on the same host as the monitored endpoint
+- Configuring Wazuh Agent to connect to a local Manager via localhost (127.0.0.1)
 - Diagnosing and resolving version compatibility issues between Wazuh Agent and Manager
 - Understanding the difference between network-based detection (IDS) and host-based detection (EDR/HIDS)
 - Configuring File Integrity Monitoring (FIM) to track critical system paths
