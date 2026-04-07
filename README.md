@@ -123,19 +123,15 @@ The Splunk dashboard provides real-time visibility across 8 panels:
 
 ### Overview — 1 Active Agent, 406 Medium Alerts
 
-![Wazuh Overview](screenshots/wazuh-overview.png)
+![Wazuh Overview](screenshots/OverviewWazuh.png)
 
 ### Agent Detail — simu-s (Ubuntu 24.04, Wazuh v4.11.2)
 
-![Wazuh Agent](screenshots/wazuh-agent-simu-s.png)
-
-### Security Configuration Assessment — CIS Ubuntu 24.04 Benchmark
-
-![Wazuh SCA Score](screenshots/wazuh-sca-score.png)
+![Wazuh Agent](screenshots/DashboardWazuh.png)
 
 ### SCA Check Details — 137 Failed Controls
 
-![Wazuh SCA Details](screenshots/wazuh-sca-details.png)
+![Wazuh SCA Details](screenshots/SCAWazuh.png)
 
 ---
 
